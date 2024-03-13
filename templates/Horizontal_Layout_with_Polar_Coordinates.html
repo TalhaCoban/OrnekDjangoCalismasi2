@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <h3 class="redtitle"><strong> Polar Koordinatlarla Yatay Aplikasyon Hesabı </strong></h3>
+        <div class="row">
+            <div class="col-4">
+                <table class="table3">
+                    <tbody>
+                        <tr class="table3">
+                            <th class="table3">R</th>
+                            <td class="table3">Gauss-Krueger yarıçapı</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">N</th>
+                            <td class="table3">Geoid Ondulasyonu</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">P101</th>
+                            <td class="table3">Durulan Nokta</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">P102</th>
+                            <td class="table3">Bakılan Nokta</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">P</th>
+                            <td class="table3">Aplikasyon Noktası</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="table1">
+                        <tbody>
+                            <tr class="table1">
+                                <th class="table1">R<sub></sub></th>
+                                <td><input class="table1" type="text" min="0" name="Gauss_Krueger" size="10" value="{{ R }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">N<sub></sub></th>
+                                <td><input class="table1" type="text" min="0" name="Geoid_Undulation" size="10" value="{{ NA }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">Y<sub>P101</sub></th>
+                                <td><input class="table1" type="text" min="0" name="YP101" size="10" value="{{ YP101 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">X<sub>P101</sub></th>
+                                <td><input class="table1" type="text" min="0" name="XP101" size="10" value="{{ XP101 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">H<sub>ort<sub>P101</sub></sub></th>
+                                <td><input class="table1" type="text" min="0" name="H_orth_P101" size="10" value="{{ HA }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">Y<sub>P102</sub></th>
+                                <td><input class="table1" type="text" min="0" name="YP102" size="10" value="{{ YP102 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">X<sub>P102</sub></th>
+                                <td><input class="table1" type="text" min="0" name="XP102" size="10" value="{{ XP102 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">Y<sub>P</sub></th>
+                                <td><input class="table1" type="text" min="0" name="YP" size="10" value="{{ YP }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">X<sub>P</sub></th>
+                                <td><input class="table1" type="text" min="0" name="XP" size="10" value="{{ XP }}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="bttn-success" formaction="/Calculations/HoLaywPolCoor/" value="Hesapla">
+                </form>
+            </div>
+
+            <div class="col-4">
+                <table class="table2">
+                    <tbody>
+                        <tr class="table2">
+                            <th class="table2">S<sub>P101,P</sub>'</th>
+                            <td class="table2">{{ Sp }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">Ym<sub></sub></th>
+                            <td class="table2">{{ Ym }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">Se<sub></sub></th>
+                            <td class="table2">{{ Se }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">Sg<sub></sub></th>
+                            <td class="table2">{{ Sg }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">S<sub>P101,P</sub></th>
+                            <td class="table2">{{ SAP }}</td>
+                        </tr><tr class="table2">
+                            <th class="table2">t<sub>P101,P</sub></th>
+                            <td class="table2">{{ t_P101_P }}</td>
+                        </tr>
+                        </tr><tr class="table2">
+                            <th class="table2">t<sub>P101,P102</sub></th>
+                            <td class="table2">{{ t_P101_P102 }}</td>
+                        </tr>
+                        </tr><tr class="table2">
+                            <th class="table2">β<sub></sub></th>
+                            <td class="table2">{{ Beta }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}
+

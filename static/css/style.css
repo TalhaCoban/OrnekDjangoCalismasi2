@@ -1,0 +1,105 @@
+
+.redtitle {
+    color: darkred;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table1 {
+    border: 2px solid black;
+    height: 20px;
+    padding-bottom: 4px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+th.table1 {
+    width: 37%;
+    background-color: rgb(221, 240, 114);
+}
+
+td.table1 {
+    width: 63%;
+}
+
+input.table1 {
+    border: none;
+    text-align: center;
+}
+
+.table3 {
+    border: 2px solid black;
+    height: 20px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+th.table3 {
+    width: 37%;
+    background-color: rgb(203, 103, 216);
+}
+
+td.table3 {
+    width: 63%;
+}
+
+.table2 {
+    border: 2px solid black;
+    height: 20px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+th.table2 {
+    width: 37%;
+    background-color: rgb(73, 192, 207);
+}
+
+td.table2 {
+    width: 63%;
+}
+
+
+.bttn-success {
+    border: 2px solid rgb(8, 80, 8);
+    background-color: rgb(60, 201, 60);
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+    margin: 15px 10px 15px 10px;
+    height: 36px;
+    width: 108px;
+}
+
+.bttn-success:hover {
+    border: 2px solid rgb(6, 59, 6);
+    background-color: rgb(35, 139, 35);
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    margin: 13px 10px 13px 10px;
+    height: 40px;
+    width: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

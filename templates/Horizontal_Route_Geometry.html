@@ -1,0 +1,263 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <h3 class="redtitle"><strong> Geçki Yatay Geometrisi </strong></h3>
+        <div class="row">
+            <div class="col-1">
+            </div>
+
+            <div class="col-10">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">R<sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="R_1" size="10" value="{{ R_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Δ<sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="Delta_1" size="10" value="{{ Delta_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>M</sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YM_1" size="10" value="{{ YM_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>M</sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XM_1" size="10" value="{{ XM_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-2"></div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>S<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KSn_1_1" size="10" value="{{ KSn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>TF<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KTFn_1_1" size="10" value="{{ KTFn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>TO<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KTOn_1" size="10" value="{{ KTOn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>S<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KSn_1" size="10" value="{{ KSn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>TF<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KTFn_1" size="10" value="{{ KTFn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>TO<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KTOn1_1" size="10" value="{{ KTOn1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">K<sub>S<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="KSn1_1" size="10" value="{{ KSn1_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>   
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>S<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YSn_1_1" size="10" value="{{ YSn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>TF<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YTFn_1_1" size="10" value="{{ YTFn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>TO<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YTOn_1" size="10" value="{{ YTOn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>S<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YSn_1" size="10" value="{{ YSn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>TF<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YTFn_1" size="10" value="{{ YTFn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>TO<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YTOn1_1" size="10" value="{{ YTOn1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">Y<sub>S<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="YSn1_1" size="10" value="{{ YSn1_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>   
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>S<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XSn_1_1" size="10" value="{{ XSn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>TF<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XTFn_1_1" size="10" value="{{ XTFn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>TO<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XTOn_1" size="10" value="{{ XTOn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>S<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XSn_1" size="10" value="{{ XSn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>TF<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XTFn_1" size="10" value="{{ XTFn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>TO<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XTOn1_1" size="10" value="{{ XTOn1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">X<sub>S<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="XSn1_1" size="10" value="{{ XSn1_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>   
+                    </div> 
+
+                    <div class="row">
+                        <div class="col-2">
+                            
+                        </div>
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">S<sub>S<sub>n-1</sub>,TF<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="SSn_1_TFn_1_1" size="10" value="{{ SSn_1_TFn_1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">S<sub>TF<sub>n-1</sub>,TO<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="STFn_1_TOn_1" size="10" value="{{ STFn_1_TOn_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">S<sub>S<sub>n</sub>,S<sub>n-1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="SSn_Sn_1_1" size="10" value="{{ SSn_Sn_1_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> 
+
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">S<sub>TO<sub>n+1</sub>,S<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="STOn1_Sn1_1" size="10" value="{{ STOn1_Sn1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">S<sub>TF<sub>n</sub>,TO<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="STFn_TOn1_1" size="10" value="{{ STFn_TOn1_1 }}"></td>
+                                    </tr>
+                                    <tr class="table1">
+                                        <th class="table1">S<sub>S<sub>n</sub>,S<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="SSn_Sn1_1" size="10" value="{{ SSn_Sn1_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-2">
+                        
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-2">
+                        
+                        </div>
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">t<sub>S<sub>n-1</sub>,S<sub>n</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="t_Sn_1_Sn_1" size="10" value="{{ t_Sn_1_Sn_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>   
+                        <div class="col-4">
+                            <table class="table1">
+                                <tbody>
+                                    <tr class="table1">
+                                        <th class="table1">t<sub>S<sub>n</sub>,S<sub>n+1</sub></sub></th>
+                                        <td><input class="table1" type="text" min="0" name="t_Sn_Sn1_1" size="10" value="{{ t_Sn_Sn1_1 }}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-2">
+                        
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-1">
+                        
+                        </div>
+                        <div class="col-5">
+                        
+                        </div>   
+                        <div class="col-5">
+                        
+                        </div>
+                        <div class="col-1">
+                        
+                        </div>
+                    </div>
+                    <select name="combobox_left_or_right">
+                        <option value="Right Curve">Sağ Eğri</option>
+                        <option value="Left Curve">Sol Eğri</option>
+                    </select>
+                    <input type="submit" class="bttn-success" formaction="/RouteGeometry/HorizontalRG/" value="Hesapla">
+                </form>
+            </div>
+
+            <div class="col-1">
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-4">
+                <h3 class="redtitle"><strong> 1. Temel Ödev </strong></h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="table1">
+                        <tbody>
+                            <tr class="table1">
+                                <th class="table1">Y<sub>A</sub></th>
+                                <td><input class="table1" type="text" min="0" name="YA1" size="10" value="{{ YA1 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">X<sub>A</sub></th>
+                                <td><input class="table1" type="text" min="0" name="XA1" size="10" value="{{ XA1 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">t<sub>A,B</sub></th>
+                                <td><input class="table1" type="text" min="0" name="tAB1" size="10" value="{{ tAB1 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">S<sub>A,B</sub></th>
+                                <td><input class="table1" type="text" min="0" name="SAB1" size="10" value="{{ SAB1 }}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="bttn-success" formaction="/Calculations/FundComp/" value="Hesapla">
+                <table class="table2">
+                    <tbody>
+                        <tr class="table2">
+                            <th class="table2">Y<sub>B</sub></th>
+                            <td class="table2">{{ YB }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">X<sub>B</sub></th>
+                            <td class="table2">{{ XB }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-4">
+                <h3 class="redtitle"><strong> 2. Temel Ödev </strong></h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="table1">
+                        <tbody>
+                            <tr class="table1">
+                                <th class="table1">Y<sub>A</sub></th>
+                                <td><input class="table1" type="text" min="0" name="YA2" size="10" value="{{ YA2 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">X<sub>A</sub></th>
+                                <td><input class="table1" type="text" min="0" name="XA2" size="10" value="{{ XA2 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">Y<sub>B</sub></th>
+                                <td><input class="table1" type="text" min="0" name="YB2" size="10" value="{{ YB2 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">X<sub>B</sub></th>
+                                <td><input class="table1" type="text" min="0" name="XB2" size="10" value="{{ XB2 }}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="bttn-success" formaction="/Calculations/FundComp/" value="Hesapla">
+                <table class="table2">
+                    <tbody>
+                        <tr class="table2">
+                            <th class="table2">S<sub>A,B</sub></th>
+                            <td class="table2">{{ SAB }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">t<sub>A,B</sub></th>
+                            <td class="table2">{{ tAB }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">t<sub>B,A</sub></th>
+                            <td class="table2">{{ tBA }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-4">
+                <h3 class="redtitle"><strong> 3. Temel Ödev </strong></h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="table1">
+                        <tbody>
+                            <tr class="table1">
+                                <th class="table1">t<sub>A,B</sub></th>
+                                <td><input class="table1" type="text" min="0" name="tAB3" size="10" value="{{ tAB3 }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">β<sub>B</sub></th>
+                                <td><input class="table1" type="text" min="0" name="BetaB" size="10" value="{{ BetaB }}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="bttn-success" formaction="/Calculations/FundComp/" value="Hesapla">
+                </form>
+                <table class="table2">
+                    <tbody>
+                        <tr class="table2">
+                            <th class="table2">t<sub>B,C</sub></th>
+                            <td class="table2">{{ tBC }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

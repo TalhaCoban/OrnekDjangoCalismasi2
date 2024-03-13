@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <h3 class="redtitle"><strong> Merkezlendirme Hatası Hesapları </strong></h3>
+        <div class="row">
+            <div class="col-4">
+                <table class="table3">
+                    <tbody>
+                        <tr class="table3">
+                            <th class="table3">n</th>
+                            <td class="table3">Set up Sayısı</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">P101</th>
+                            <td class="table3">Durulan Nokta</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">P102</th>
+                            <td class="table3">Bakılan Nokta</td>
+                        </tr>
+                        <tr class="table3">
+                            <th class="table3">P</th>
+                            <td class="table3">Aplikasyon Noktası</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="table1">
+                        <tbody>
+                            <tr class="table1">
+                                <th class="table1">σ<sub>lq</sub></th>
+                                <td><input class="table1" type="text" min="0" name="sigma_lq" size="10" value="{{ sigma_lq }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">σ<sub>r</sub><i>(cc)</i></th>
+                                <td><input class="table1" type="text" min="0" name="sigma_r" size="10" value="{{ sigma_r }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">e<sub>s</sub><i>(mm)</i></th>
+                                <td><input class="table1" type="text" min="0" name="es" size="10" value="{{ es }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">e<sub>t</sub><i>(mm)</i></th>
+                                <td><input class="table1" type="text" min="0" name="et" size="10" value="{{ et }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">σ<sub>L</sub><i>(mm)</i></th>
+                                <td><input class="table1" type="text" min="0" name="el" size="10" value="{{ el }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">S<sub>P101,P</sub><i>(m)</i></th>
+                                <td><input class="table1" type="text" min="0" name="SP101_A_22" size="10" value="{{ S }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">S<sub>P101,P102</sub><i>(m)</i></th>
+                                <td><input class="table1" type="text" min="0" name="SP101_P102_22" size="10" value="{{ b }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">β<sub><i>(g)</i></sub></th>
+                                <td><input class="table1" type="text" min="0" name="Beta_22" size="10" value="{{ Beta }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">n<sub></sub></th>
+                                <td><input class="table1" type="text" min="0" name="n_22" size="10" value="{{ n }}"></td>
+                            </tr>
+                            <tr class="table1">
+                                <th class="table1">σ<sub>p</sub><i>(mm)</i></th>
+                                <td><input class="table1" type="text" min="0" name="sigma_p" size="10" value="{{ sigma_p }}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="bttn-success" formaction="/Calculations/CentErr/" value="Hesapla">
+                </form>
+            </div>
+
+            <div class="col-4">
+                <table class="table2">
+                    <tbody>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>qs</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_qs }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>qq</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_qq }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>qt</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_qt }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>ls</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_ls }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>ll</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_ll }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>ql</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_ql }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>lσ</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_lsigma }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>q</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_q }}</td>
+                        </tr>
+                        <tr class="table2">
+                            <th class="table2">σ<sub>l</sub><i>(mm)</i></th>
+                            <td class="table2">{{ sigma_l }}</td>
+                        </tr>
+                        {% if n_calculated %}
+                        <tr class="table2">
+                            <th class="table2">n</th>
+                            <td class="table2">{{ n_calculated }}</td>
+                        </tr>
+                        {% else %}
+                        <tr class="table2">
+                            <th class="table2">σ<sub>p</sub><i>(mm)</i></th>
+                            {% if sigma_p_calculated %}
+                            <td class="table2">{{ sigma_p_calculated }}</td>
+                            {% else %}
+                            <td class="table2"></td>
+                            {% endif %}
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
